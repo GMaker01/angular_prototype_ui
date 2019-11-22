@@ -1,0 +1,17 @@
+# A basic redirects rule
+[[redirects]]
+  from = "https://focused-volhard-4938ca.netlify.com/*"
+  to = "https://crownstack.itsshubham.com/:splat"
+  status = 301
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+[[headers]]
+  for = "*.js" # js files should be set this way
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+[[headers]]
+  for = "*.css" # css files too
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
