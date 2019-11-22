@@ -16,8 +16,10 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
     }
 
-    navigateCategory(type: string, id: string, locationId: string) {
-        this.router.navigate(['/category'], { queryParams: { type, id, locationId } });
-        console.log(type, id, locationId);
+    navigateCategory(type: string, id: string, locationId: string = null) {
+        if (locationId) {
+            this.router.navigate(['/category'], { queryParams: { type, id, locationId } });
+        }
+        this.router.navigate(['/category'], { queryParams: { type, id } });
     }
 }
