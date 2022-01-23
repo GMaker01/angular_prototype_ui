@@ -1,9 +1,5 @@
 # A basic redirects rule
 [[redirects]]
-  from = "https://focused-volhard-4938ca.netlify.com/*"
-  to = "https://crownstack.itsshubham.com/:splat"
-  status = 301
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
