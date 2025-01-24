@@ -11,6 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'crownstack_ui';
+  title = 'angular_prototype_ui';
 }
 
