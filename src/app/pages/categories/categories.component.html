@@ -1,19 +1,20 @@
 <div style="padding:30px;">
-    <nz-breadcrumb style="margin-bottom:30px;">
-        <nz-breadcrumb-item>
-            {{name}}
-        </nz-breadcrumb-item>
-    </nz-breadcrumb>
-    <div nz-row [nzGutter]="8">
-        <div nz-col [nzSpan]="8" *ngFor="let data of categories" (click)="goToSubCategories(data.name)">
-            <nz-card nzHoverable style="padding: 10px;width: 98%;margin: 5px;text-align: center;"
-                [nzCover]="coverTemplate">
-                <nz-card-meta [nzTitle]="data.name"></nz-card-meta>
-            </nz-card>
-            <ng-template #coverTemplate>
-                <img style="width: 100px;display: block;margin: auto;" [alt]="data.name"
-                    [src]="'assets/images/' + data.image" />
-            </ng-template>
-        </div>
+  <nz-breadcrumb style="margin-bottom:30px;">
+    <nz-breadcrumb-item>
+      {{name}}
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8" *ngFor="let data of categories" (click)="goToSubCategories(data.name)">
+      <nz-card nzHoverable style="padding: 10px;width: 98%;margin: 5px;text-align: center;" [nzCover]="coverTemplate">
+        <nz-card-meta [nzTitle]="data.name"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img style="width: 100px;display: block;margin: auto;" *ngIf="!data.isImgLoaded" [alt]="data.name"
+          src="assets/images/placeholder.png">
+        <img style="width: 100px;display: block;margin: auto;" [hidden]="!data.isImgLoaded" [alt]="data.name"
+          [src]="'assets/images/' + data.image" (load)="data.isImgLoaded = true">
+      </ng-template>
     </div>
+  </div>
 </div>

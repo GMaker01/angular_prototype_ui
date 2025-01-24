@@ -1,36 +1,37 @@
 <nz-header>
-    <div nz-row>
-        <div nz-col nzXs="2" nzSm="4" nzMd="6" nzLg="8" nzXl="10">
-            <div class="logo" routerLink="/">
-                <h1>RENTAL MANAGEMENT SYSTEM</h1>
-            </div>
-        </div>
-        <!-- <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="4">
+  <div nz-row>
+    <div nz-col nzSpan="8">
+      <div class="logo" routerLink="/">
+        <h1>RENTAL MANAGEMENT SYSTEM</h1>
+      </div>
+    </div>
+    <!-- <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="4">
                   Col
                 </div> -->
-        <div nz-col nzXs="2" nzSm="4" nzPush="10" nzMd="6" nzLg="8" nzXl="10">
-            <a nz-dropdown class="menu-item" [nzDropdownMenu]="menu">
-                Select Location
-                <i nz-icon nzType="down"></i>
-            </a>
-            <nz-dropdown-menu #menu="nzDropdownMenu">
-                <ul nz-menu>
-                    <ng-container *ngFor="let menuItem of data.locations">
-                        <li *ngIf="!menuItem.branches || !menuItem.branches.length"
-                            (click)="navigateCategory('location', menuItem.dealers_id)" nz-menu-item>{{menuItem.name}}
-                        </li>
-                        <li nz-submenu *ngIf="menuItem.branches && menuItem.branches.length"
-                            (click)="navigateCategory('location', menuItem.dealers_id)" [nzTitle]="menuItem.name">
-                            <ul>
-                                <li nz-menu-item *ngFor="let branch of menuItem.branches"
-                                    (click)="navigateCategory('branch', branch.branch_id, menuItem.dealers_id)">
-                                    {{branch.name}}</li>
-                            </ul>
-                        </li>
-                    </ng-container>
+    <div nz-col nzSpan="8" nzOffset="8">
 
-                </ul>
-            </nz-dropdown-menu>
-        </div>
+      <a nz-dropdown nzVisible class="menu-item" [nzDropdownMenu]="menu">
+        Select Location
+        <nz-icon nzType="down" />
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <ng-container *ngFor="let menuItem of data.locations">
+            <li *ngIf="!menuItem.branches || !menuItem.branches.length"
+              (click)="navigateCategory('location', menuItem.dealers_id)" nz-menu-item>{{menuItem.name}}
+            </li>
+            <li nz-submenu *ngIf="menuItem.branches && menuItem.branches.length"
+              (click)="navigateCategory('location', menuItem.dealers_id)" [nzTitle]="menuItem.name">
+              <ul>
+                <li nz-menu-item *ngFor="let branch of menuItem.branches"
+                  (click)="navigateCategory('branch',  menuItem.dealers_id, branch.branch_id)">
+                  {{branch.name}}</li>
+              </ul>
+            </li>
+          </ng-container>
+
+        </ul>
+      </nz-dropdown-menu>
     </div>
+  </div>
 </nz-header>

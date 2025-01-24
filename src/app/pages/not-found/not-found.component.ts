@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NzResultModule } from 'ng-zorro-antd/result';
 
 @Component({
-    selector: 'app-not-found',
-    templateUrl: './not-found.component.html',
-    styleUrls: ['./not-found.component.scss']
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  imports: [NzResultModule],
+  styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
 
-    constructor(private router: Router) { }
+  constructor(private router: Router) { }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
-    goHome() {
-        this.router.navigate(['']);
-    }
+  goHome() {
+    this.router.navigate(['']);
+  }
 
 }
