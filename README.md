@@ -1,5 +1,7 @@
 # Prototype Project to showcase Angular UI skills
 
+## Navigate to the URL to see the demo [Website](https://angular-ui-prototype.netlify.app)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
 
 ## Development server
